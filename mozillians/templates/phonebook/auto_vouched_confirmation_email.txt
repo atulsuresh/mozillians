@@ -1,0 +1,17 @@
+{% trans %}
+Hi there,
+{% endtrans %}
+
+{% trans %}
+Thanks to your contributions to Mozilla, you are vouched
+and have full access to Mozillians.org, our community directory.
+You can now find other folks easily, join groups and
+invite other Mozillians to the site.
+{% endtrans %}
+
+
+{% trans %}
+Keep rocking the open Web!
+{% endtrans %}
+
+{{ _('The Mozillians.org Team') }}
