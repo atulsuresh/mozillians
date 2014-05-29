@@ -545,10 +545,10 @@ class UserProfile(UserProfilePrivacyModel, SearchMixin):
 
     def _email_now_vouched(self):
         """Email this user, letting them know they are now vouched."""
-        
+
         name = self.vouched_by.full_name
         profile_link = utils.absolutify(self.vouched_by.get_absolute_url())   
-        template = get_template('phonebook/voched_confirmation_email.txt')
+        template = get_template('phonebook/vouched_confirmation_email.txt')
         message = template.render({
             'voucher_name': name,
             'voucher_profile_url': profile_link
