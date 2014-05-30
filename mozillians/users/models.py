@@ -545,16 +545,19 @@ class UserProfile(UserProfilePrivacyModel, SearchMixin):
 
     def _email_now_vouched(self):
         """Email this user, letting them know they are now vouched."""
-        name = self.vouched_by.full_name
-        profile_link = utils.absolutify(self.vouched_by.get_absolute_url())   
+        name = None
+        if self.vouched_by:
+            name = self.vouched_by.full_name
+
+        profile_link = utils.absolutify(self.vouched_by.get_absolute_url())
         template = get_template('phonebook/vouched_confirmation_email.txt')
         message = template.render({
             'voucher_name': name,
-            'voucher_profile_url': profile_link
-        })
+            'voucher_profile_url': profile_link})
         subject = _(u'You are now vouched on Mozillians.org')
         filtered_message = message.replace('&#34;', '"').replace('&#39;', "'")
-        send_mail(subject, filtered_message, settings.FROM_NOREPLY, [self.user.email])
+        send_mail(subject, filtered_message, settings.FROM_NOREPLY,
+                  [self.user.email])
 
     def lookup_basket_token(self):
         """
