@@ -546,6 +546,7 @@ class UserProfile(UserProfilePrivacyModel, SearchMixin):
     def _email_now_vouched(self):
         """Email this user, letting them know they are now vouched."""
         name = None
+        profile_link = None;
         if self.vouched_by:
             name = self.vouched_by.full_name
             profile_link = utils.absolutify(self.vouched_by.get_absolute_url())
