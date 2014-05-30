@@ -548,8 +548,8 @@ class UserProfile(UserProfilePrivacyModel, SearchMixin):
         name = None
         if self.vouched_by:
             name = self.vouched_by.full_name
+            profile_link = utils.absolutify(self.vouched_by.get_absolute_url())
 
-        profile_link = utils.absolutify(self.vouched_by.get_absolute_url())
         template = get_template('phonebook/vouched_confirmation_email.txt')
         message = template.render({
             'voucher_name': name,
