@@ -1,12 +1,11 @@
 {% trans %}
-Hi there,
+	Hi there,
 {% endtrans %}
 
 {% trans %}
-Thanks to your contributions to Mozilla, you are vouched
-and have full access to Mozillians.org, our community directory.
-You can now find other folks easily, join groups and
-invite other Mozillians to the site.
+	You have been vouched on Mozillians.org! 
+	You are now able to search through all Mozillians profiles 
+	and you can also join groups.
 {% endtrans %}
 
 {% if voucher_name  %}
@@ -16,7 +15,13 @@ invite other Mozillians to the site.
 {% endif %}
 
 {% trans %}
-Keep rocking the open Web!
+	Take a moment to join a functional area or group right now:
+	https://mozillians.org/functional-areas/
+	https://mozillians.org/groups/
+{% endtrans %}
+
+{% trans %}
+	Keep rocking the open Web!
 {% endtrans %}
 
 {{ _('The Mozillians.org Team') }}
