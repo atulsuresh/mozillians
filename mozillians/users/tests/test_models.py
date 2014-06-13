@@ -256,7 +256,8 @@ class UserProfileTests(TestCase):
         ok_(send_mail_mock.called)
         eq_(send_mail_mock.call_args[0][3], [user.email])
 
-    def test_email_now_user_vouched(self, send_mail_mock):
+    @patch('mozillians.users.models.send_mail')
+    def test_email_now_vouched_with_voucher(self, send_mail_mock):
         voucher = UserFactory.create()
         user = UserFactory.create(userprofile={'vouched_by': voucher.userprofile})
         user.userprofile._email_now_vouched()
